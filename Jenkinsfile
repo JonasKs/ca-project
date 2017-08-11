@@ -15,5 +15,7 @@ node {
         sh 'docker rm pythoncontainerw || true'
 	sh 'docker run -d --rm -p 5000:5000 --name pythoncontainerw pythonimagew:latest python /tmp/ca-project/run.py'
     }
+    stage('Up?'){
+	sh 'curl --silent http://128.39.121.23:5000/ | grep "Write your post here"'
+    }
 }
-
