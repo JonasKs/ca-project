@@ -6,6 +6,8 @@ node {
         sh 'docker build -t pythonimagew .'
     }
     stage('Testing'){
+	sh 'docker stop pythoncontainerw || true'
+	sh 'docker rm pythoncontainerw || true'
         sh 'docker run --rm -i -p 5000:5060 --name pythoncontainerw pythonimagew:latest python /tmp/ca-project/tests.py'
     }
     stage('Running'){
