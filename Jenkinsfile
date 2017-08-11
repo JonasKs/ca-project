@@ -1,6 +1,6 @@
 node {
     stage('Preparation') {
-	checkout([$class: 'GitSCM', branches: [[name: '*/master'], [name: '*/workingtree']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ubuntukey', url: 'git@github.com:JonasKs/ca-project.git']]])
+	checkout scm
     }
     stage('Build'){
         sh 'docker build -t pythonimage .'
