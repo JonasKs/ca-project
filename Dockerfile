@@ -7,4 +7,4 @@ RUN apt-get update && \
 RUN mkdir -p /tmp/ca-project
 ADD .  /tmp/ca-project
 RUN pip install -r /tmp/ca-project/requirements.txt
-RUN python /tmp/ca-project/tests.py && python /tmp/ca-project/run.py
+#RUN python /tmp/ca-project/tests.py && python /tmp/ca-project/run.py

@@ -6,9 +6,11 @@ node {
     stage('Build'){
         sh 'docker build -t pythonimage .'
     }
-    stage('Results'){
+    stage('Testing'){
 	echo 'some results'
-	sh 'sh 'docker run -i --rm --name pythoncontainer pythonimage:latest'
+	sh 'docker run -i --name pythoncontainer pythonimage:latest python /tmp/ca-project/tests.py'
+    }
+    stage('Running'){
+	sh 'docker exec pythoncontainer python /tmp/ca-project/run.py'
     }
 }
-
