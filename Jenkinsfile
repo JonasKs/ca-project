@@ -1,7 +1,6 @@
 node {
     stage('Preparation') {
-        //git credentialsId: 'ubuntukey', url: 'git@github.com:JonasKs/gildedrose.git'
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ubuntukey', url: 'git@github.com:JonasKs/ca-project.git'$
+	checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ubuntukey', url: 'git@github.com:JonasKs/ca-project.git']]])
     }
     stage('Build'){
         sh 'docker build -t pythonimage .'
