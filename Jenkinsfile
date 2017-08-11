@@ -6,7 +6,7 @@ node {
         sh 'docker build -t pythonimage .'
     }
     stage('Spawning'){
-        sh 'docker run -i -p 5000:5050 --name pythoncontainer pythonimage:latest'
+        sh 'docker run -i -p 5000:5060 --name pythoncontainer pythonimage:latest'
     }
     stage('Testing'){
         sh 'docker start pythoncontainer'
