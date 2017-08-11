@@ -7,6 +7,8 @@ node {
         sh 'docker build -t pythonimage .'
     }
     stage('Spawning'){
+	echo "Checking if pythoncontainer already exist"
+	sh 'docker rm -f pythoncontainer'
 	sh 'docker run -i --name pythoncontainer pythonimage:latest'
     }
     stage('Testing'){
@@ -14,5 +16,8 @@ node {
     }
     stage('Running'){
 	sh 'docker exec pythoncontainer python /tmp/ca-project/run.py'
+    }
+    stage('Cleanup'){
+	sh 'docker rm -f pythoncontainer'
     }
 }
