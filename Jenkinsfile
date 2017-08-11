@@ -8,9 +8,9 @@ node {
     }
     stage('Testing'){
 	echo 'some results'
-	sh 'docker run -i --name pythoncontainer pythonimage:latest python /tmp/ca-project/tests.py'
+	sh 'docker run -i --rm --name pythoncontainer pythonimage:latest python /tmp/ca-project/tests.py'
     }
     stage('Running'){
-	sh 'docker exec pythoncontainer python /tmp/ca-project/run.py'
+	sh 'docker run -i --name pythoncontainer pythonimage:latest python /tmp/ca-project/run.py'
     }
 }
