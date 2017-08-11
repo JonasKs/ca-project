@@ -16,6 +16,6 @@ node {
 	sh 'docker run -d --rm -p 5000:5000 --name pythoncontainerw pythonimagew:latest python /tmp/ca-project/run.py'
     }
     stage('Up?'){
-	sh './test.sh'
+	sh 'bash test.sh'
     }
 }
