@@ -9,8 +9,8 @@ node {
         sh 'docker run --rm -i -p 5000:5060 --name pythoncontainer pythonimage:latest python /tmp/ca-project/tests.py'
     }
     stage('Running'){
-        sh 'docker stop pythoncontainer' || true
-        sh 'docker rm pythoncontainer' || true
+        sh 'docker stop pythoncontainer || true'
+        sh 'docker rm pythoncontainer || true'
 	sh 'docker run -d --rm -P --name pythoncontainer pythonimage:latest python /tmp/ca-project/run.py'
     }
 }
